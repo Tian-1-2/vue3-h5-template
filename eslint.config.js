@@ -8,6 +8,8 @@ import globals from "globals";
 
 export default defineFlatConfig([
   {
+    //禁用冲突的规则
+    extends: ["eslint:recommended", "plugin:prettier/recommended"],
     ...js.configs.recommended,
     ignores: ["**/.*", "dist/**/*", "*.d.ts", "public/*", "src/assets/**"],
     languageOptions: {
