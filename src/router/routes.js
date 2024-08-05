@@ -13,7 +13,8 @@ const routes = [
         name: "Demo",
         component: Demo,
         meta: {
-          title: "主页"
+          title: "主页",
+          isBar: true
         }
       },
       {
@@ -21,7 +22,8 @@ const routes = [
         name: "Tools",
         component: () => import("@/views/tools/index.vue"),
         meta: {
-          title: "工具"
+          title: "工具",
+          isBar: true
         }
       },
       {
@@ -30,7 +32,8 @@ const routes = [
         component: () => import("@/views/about/index.vue"),
         meta: {
           title: "关于",
-          noCache: true
+          noCache: true,
+          isBar: true
         }
       }
     ]

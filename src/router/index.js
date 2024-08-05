@@ -13,6 +13,8 @@ router.beforeEach((to, from, next) => {
   NProgress.start();
   // 路由缓存
   useCachedViewStoreHook().addCachedView(to);
+  //标题栏是否显示
+  useCachedViewStoreHook().setBar(to.meta.isBar);
   // 页面 title
   setPageTitle(to.meta.title);
   next();

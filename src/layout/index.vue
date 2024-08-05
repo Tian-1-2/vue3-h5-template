@@ -8,12 +8,15 @@ import { computed } from "vue";
 const cachedViews = computed(() => {
   return useCachedViewStoreHook().cachedViewList;
 });
+const isShowBar = computed(() => {
+  return useCachedViewStoreHook().isShowBar;
+});
 </script>
 
 <template>
   <div class="app-wrapper">
     <van-config-provider :theme="useDarkMode() ? 'dark' : 'light'">
-      <nav-bar />
+      <nav-bar v-if="isShowBar" />
       <router-view v-slot="{ Component }">
         <keep-alive :include="cachedViews">
           <component :is="Component" />
