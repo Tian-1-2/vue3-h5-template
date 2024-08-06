@@ -1,14 +1,14 @@
 import Axios from "axios";
 import NProgress from "../progress";
-import { showFailToast } from "vant";
+// import { showFailToast } from "vant";
 import "vant/es/toast/style";
-
+import { getToken } from '@/utils/auth'
 // 默认 axios 实例请求配置
 const configDefault = {
   headers: {
     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
   },
-  timeout: 0,
+  timeout: 20000,
   baseURL: import.meta.env.VITE_BASE_API,
   data: {}
 };
@@ -34,6 +34,11 @@ class Http {
         // if (token) {
         //   config.headers['token'] = token
         // }
+        // 是否需要设置 token
+        const isToken = (config.headers || {}).isToken === false
+        if (getToken() && !isToken) {
+          config.headers['token'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+        }
         return config;
       },
       error => {
@@ -58,6 +63,7 @@ class Http {
         } else {
           // 处理请求错误
           // showFailToast(message);
+          showFailToast(message);
           console.log(message);
           return Promise.reject(response.data);
         }

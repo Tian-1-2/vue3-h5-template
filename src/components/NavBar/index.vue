@@ -6,6 +6,7 @@ const onClickRight = () => {
   useToggleDarkMode();
 };
 const title = computed(() => {
+  console.log(useRouterMetaStoreHook().title,useRouterMetaStoreHook().isShowBar);
   return useRouterMetaStoreHook().title;
 });
 </script>

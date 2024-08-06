@@ -4,12 +4,12 @@ import NavBar from "@/components/NavBar/index.vue";
 import { useDarkMode } from "@/hooks/useToggleDarkMode";
 import { useCachedViewStoreHook } from "@/store/modules/cachedView";
 import { computed } from "vue";
-
+import { useRouterMetaStoreHook } from "@/store/modules/routerMeta";
 const cachedViews = computed(() => {
   return useCachedViewStoreHook().cachedViewList;
 });
 const isShowBar = computed(() => {
-  return useCachedViewStoreHook().isShowBar;
+  return useRouterMetaStoreHook().isShowBar;
 });
 </script>
 

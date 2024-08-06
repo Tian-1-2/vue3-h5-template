@@ -5,6 +5,7 @@ import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import Components from "unplugin-vue-components/vite";
 import { VantResolver } from "@vant/auto-import-resolver";
+import AutoImport from 'unplugin-auto-import/vite';
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import path from "path";
 import mockDevServerPlugin from "vite-plugin-mock-dev-server";
@@ -26,6 +27,9 @@ export default defineConfig(({ mode }) => {
       vueJsx(),
       Components({
         resolvers: [VantResolver()]
+      }),
+      AutoImport({
+        resolvers: [VantResolver()],
       }),
       // 允许 setup 语法糖上添加组件名属性
       vueSetupExtend(),

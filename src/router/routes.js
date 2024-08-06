@@ -14,7 +14,7 @@ const routes = [
         component: Demo,
         meta: {
           title: "主页",
-          isBar: true
+          isBar: false
         }
       },
       {
