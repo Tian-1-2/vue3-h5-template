@@ -22,7 +22,7 @@ const isShowBar = computed(() => {
           <component :is="Component" />
         </keep-alive>
       </router-view>
-      <tabbar />
+      <!-- <tabbar /> -->
     </van-config-provider>
   </div>
 </template>

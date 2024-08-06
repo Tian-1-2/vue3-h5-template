@@ -1,17 +1,17 @@
 import Layout from "@/layout/index.vue";
-import Demo from "@/views/demo/index.vue";
+import Index from "@/views/index/index.vue";
 
 const routes = [
   {
     path: "/",
     name: "root",
     component: Layout,
-    redirect: { name: "Demo" },
+    redirect: { name: "Index" },
     children: [
       {
-        path: "demo",
-        name: "Demo",
-        component: Demo,
+        path: "index",
+        name: "Index",
+        component: Index,
         meta: {
           title: "主页",
           isBar: false
@@ -34,6 +34,16 @@ const routes = [
           title: "关于",
           noCache: true,
           isBar: true
+        }
+      },
+      {
+        path: "login",
+        name: "Login",
+        component: () => import("@/views/login/login.vue"),
+        meta: {
+          title: "登录",
+          noCache: true,
+          isBar: false
         }
       }
     ]

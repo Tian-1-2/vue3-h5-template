@@ -6,7 +6,6 @@ export const useCachedViewStore = defineStore({
   state: () => ({
     // 缓存页面 keepAlive
     cachedViewList: [],
-    isShowBar: true
   }),
   actions: {
     addCachedView(view) {
@@ -23,10 +22,6 @@ export const useCachedViewStore = defineStore({
     delAllCachedViews() {
       this.cachedViewList = [];
     },
-    // 判断标题栏是否显示
-    setBar(view) {
-      this.isShowBar = view;
-    }
   }
 });
 
