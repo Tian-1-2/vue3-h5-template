@@ -12,7 +12,7 @@ export const useRouterMetaStore = defineStore({
 		setBar(view) {
 			this.isShowBar = view;
 		},
-		// 判断标题栏是否显示
+		// 判断标题是否显示
 		setTitle(view) {
 			this.title = view;
 		}
